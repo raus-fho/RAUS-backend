@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: raus-api-webserver
+spec:
+  selector:
+    matchLabels:
+      app: raus-api-webserver
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: raus-api-webserver
+    spec:
+      containers:
+      - name: raus-api-webserver
+        image: caiocfer/raus
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
