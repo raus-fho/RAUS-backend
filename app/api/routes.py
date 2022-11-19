@@ -11,3 +11,13 @@ def get_status():
 def update_status():
     status = dbapi.update_status()
     return status
+
+@app.route('/history', methods=["GET"])
+def get_history():
+    hist = dbapi.get_all_history()
+    return jsonify(hist)
+
+@app.route("/history", methods=["POST"])
+def save_history():
+    hist = dbapi.save_history_to_db()
+    return hist
