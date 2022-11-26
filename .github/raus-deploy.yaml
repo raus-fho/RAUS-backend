@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: raus-api-webserver
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: raus-api-webserver
@@ -19,3 +20,15 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /status
+            port: 5000
+          periodSeconds: 120
+          initialDelaySeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /status
+            port: 5000
+          periodSeconds: 120
+       
