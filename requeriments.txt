@@ -6,3 +6,4 @@ mysql-connector-python
 mysqlclient
 python-dotenv
 flask-cors
+pyopenssl
