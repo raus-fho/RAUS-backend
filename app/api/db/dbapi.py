@@ -13,7 +13,7 @@ def get_current_status():
     return row2dict(status)
 
 def update_status():
-    status = jsonify(request.json).json 
+    status = jsonify(request.json).json
     status.update({'actuator_status':status['actuator_status']})
     app.session.query(models.Status)\
         .update(status)

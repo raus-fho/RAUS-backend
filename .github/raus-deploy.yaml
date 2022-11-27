@@ -24,11 +24,12 @@ spec:
           httpGet:
             path: /status
             port: 5000
-          periodSeconds: 120
+          periodSeconds: 300
           initialDelaySeconds: 5
         livenessProbe:
           httpGet:
             path: /status
             port: 5000
-          periodSeconds: 120
+          periodSeconds: 300
+          initialDelaySeconds: 5
        
